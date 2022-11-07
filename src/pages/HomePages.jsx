@@ -10,8 +10,6 @@ import { getMovies, getGenres } from '../features/movies/moviesSlice'
 export default function HomePages() {
     const { movies, isLoading, hasError, genres } = useSelector((state) => state.movies)
     const dispatch = useDispatch();
-    
-    console.log(movies)
 
     useEffect(() => {
         dispatch(getMovies());

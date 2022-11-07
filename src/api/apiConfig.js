@@ -1,9 +1,15 @@
-const key = 'a69ac84e7a5ab50d30d9c6e241bda7f6'
+const key = process.env.REACT_APP_API_KEY
 
 const request = {
-    requestPopular: `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=1`,
-    requestDetail: `https://api.themoviedb.org/3/movie/{movie_id}?api_key=a69ac84e7a5ab50d30d9c6e241bda7f6&language=en-US`,
-    requestGenre: `https://api.themoviedb.org/3/genre/movie/list?api_key=${key}&language=en-US`,
+    baseUrl: `https://api.themoviedb.org/3`,
+    apiKey: process.env.REACT_APP_API_KEY,
+    imgUrl: `https://image.tmdb.org/t/p/original`,
+    requestPopular: `/movie/popular?api_key=${key}&language=en-US`,
+
 }
 
 export default request
+
+// requestDetail: `https://api.themoviedb.org/3/movie/{movie_id}?api_key=${key}&language=en-US`,
+//     requestGenre: `https://api.themoviedb.org/3/genre/movie/list?api_key=${key}&language=en-US`,
+//     requestSearch: `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&page=1&include_adult=false`

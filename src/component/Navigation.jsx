@@ -11,13 +11,13 @@ export default function Navigation() {
     const handleNav = () => setIcon(!icon);
 
     return (
-        <nav className='fixed top-0 left-0 bg-[#111722] w-full mb-8'>
+        <nav className='fixed top-0 left-0 bg-[#111722] w-full mb-8 z-10 transition-all duration-200 ease-out'>
             <div className='container m-auto flex justify-between items-center text-gray-700'>
                 <div className='grid grid-cols-3 gap-10'>
-                    <h1 className='lg:pl-[120px] pl-8 py-4 text-2xl font-bold text-white items-center'>NotFlix</h1>
+                    <h1 className='lg:pl-[120px] pl-8 py-4 text-2xl font-bold text-white items-center cursor-pointer'>NotFlix</h1>
                     <ul className='hidden md:flex items-center text-base font-semibold cursor-pointer'>
-                        <li className='hover:text-[#3182ed] py-4 px-6 text-white'>Home</li>
-                        <li className='hover:text-[#3182ed] py-4 px-6 text-white'>Category</li>
+                        <li className='hover:text-[#3182ed] py-4 px-6 text-white transition-all duration-500 ease-out'>Home</li>
+                        <li className='hover:text-[#3182ed] py-4 px-6 text-white transition-all duration-500 ease-out'>Category</li>
                     </ul>
                 </div>
                 <div className='flex justify-items-stretch'>
@@ -34,7 +34,7 @@ export default function Navigation() {
                         </button>
                     </form>
                     <ul className='hidden md:flex items-center pr-10 lg:pr-[128px] text-base font-semibold cursor-pointer'>
-                        <li className='hover:text-[#3182ed] py-4 text-white max-w-64 flex items-center'>
+                        <li className='hover:text-[#3182ed] py-4 text-white max-w-64 flex items-center transition-all duration-500 ease-out'>
                             <span className='mr-1'>Sign In</span>
                             <BsBoxArrowInRight className='w-5 h-5' /> 
                         </li>

@@ -9,7 +9,7 @@ export default function Cardmap({ movies }) {
 
     return (
         <div 
-            className='max-w-[1024px] grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-2 md:gap-y-12 mx-auto mt-12'
+            className='max-w-[1024px] grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-4 md:gap-y-8 mx-auto mt-12'
             // className='grid grid-cols-2 gap-y-2 md:grid-cols-4 lg:grid-cols-5 md:px-6 md:gap-y-12 mt-12 lg:pl-[120px] lg:pr-[128px]'
         >
             {

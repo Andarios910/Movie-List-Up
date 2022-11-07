@@ -6,7 +6,7 @@ export const getMovies = createAsyncThunk(
     'movies/getMovies',
     async() => {
         try {
-            const res = await axios.get(request.requestPopular);
+            const res = await axios.get(`${request.baseUrl}${request.requestPopular}`);
             return res.data.results;
         }catch(error) {
             console.error(error)
@@ -18,7 +18,7 @@ export const getMoviesDetail = createAsyncThunk(
     'movies/getMoviesId',
     async(id) => {
         try {
-            const res = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=a69ac84e7a5ab50d30d9c6e241bda7f6&language=en-US`);
+            const res = await axios.get(`${request.baseUrl}/movie/${id}?api_key=${request.apiKey}&language=en-US`);
             return res;
         } catch(error) {
             console.error(error);
@@ -30,8 +30,21 @@ export const getMoviesSearch = createAsyncThunk(
     'movies/getMoviesSearch',
     async(query) => {
         try {
-            const res = await axios.get(`http://notflixtv.herokuapp.com/api/v1/movies?search=${query}`);
-            return res.data;
+            const res = await axios.get(`${request.baseUrl}/search/movie?api_key=${request.apiKey}&language=en-US&page=1&include_adult=false&query=${query}`);
+            return res.data.results;
+        }catch(error) {
+            console.error(error);
+        }
+    }
+)
+
+export const getTrending = createAsyncThunk(
+    'trending/getTrending',
+    async() => {
+        try {
+            const res = await axios.get(`${request.baseUrl}//trending/all/day?api_key=${request.apiKey}`);
+            // console.log(res)
+            return res.data.results;
         }catch(error) {
             console.error(error);
         }
@@ -53,6 +66,7 @@ export const getGenres = createAsyncThunk(
 const initialState = {
     movies: [],
     shows: [],
+    trendign: [],
     genres: [],
     isLoading: false,
     hasError: false,
@@ -98,8 +112,33 @@ export const moviesSlice = createSlice({
         },
 
         //getMovieSearch
+        [getMoviesSearch.pending]: (state) => {
+            state.isLoading = true
+            state.hasError = false
+        },
         [getMoviesSearch.fulfilled]: (state, {payload}) => {
-            state.shows = payload.data
+            state.shows = payload
+            state.isLoading = false
+            state.hasError = true
+        },
+        [getMoviesSearch.rejected]: (state) => {
+            state.isLoading = false
+            state.hasError = true
+        },
+        
+        //Trending
+        [getTrending.pending]: (state) => {
+            state.isLoading = true
+            state.hasError = false
+        },
+        [getTrending.fulfilled]: (state, {payload}) => {
+            state.trending = payload
+            state.isLoading = false
+            state.hasError = true
+        },
+        [getTrending.rejected]: (state) => {
+            state.isLoading = false
+            state.hasError = true
         },
 
         //getGenres
