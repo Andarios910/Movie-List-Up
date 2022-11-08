@@ -6,7 +6,7 @@ import Card from './Card'
 
 export default function Cardmap({ movies }) {
     const navigate = useNavigate();
-
+    
     return (
         <div 
             className='max-w-[1024px] grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-4 md:gap-y-8 mx-auto mt-12'
@@ -20,7 +20,7 @@ export default function Cardmap({ movies }) {
                         id={item.id}
                         imageUrl={item.poster_path}
                         title={item.title}
-                        date={item.release_date}
+                        genre={item.genre_ids}
                         handleClick={() => navigate(`/detail/${item.id}`)}
                     />
                 ))

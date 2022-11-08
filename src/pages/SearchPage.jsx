@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
+import Cardmap from '../component/Cardmap';
+import Navigation from '../component/Navigation';
+import Footer from '../component/Footer';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { getMoviesSearch } from '../features/movies/moviesSlice';
-import Cardmap from '../component/Cardmap';
 
 export default function SearchPage() {
     const {query} = useParams();
     const { shows, isLoading, hasError } = useSelector((state) => state.movies)
     const dispatch = useDispatch();
-
-    console.log(shows)
 
     useEffect(() => {
         dispatch(getMoviesSearch(query));
@@ -17,6 +19,7 @@ export default function SearchPage() {
 
     return (
         <div>
+            <Navigation />
             {
                 isLoading ?  
                 (
@@ -25,7 +28,7 @@ export default function SearchPage() {
                     <Cardmap movies={shows} />
                 )
             }
-            {/* <Cardmap movies={shows} /> */}
+            <Footer />
         </div>
     )
 }

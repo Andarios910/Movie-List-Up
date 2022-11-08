@@ -16,8 +16,6 @@ export default function Hero() {
     const dispatch = useDispatch();
     const { trending } = useSelector((state) => state.movies)
 
-    console.log(trending)
-
     useEffect(() => {
         dispatch(getTrending());
     }, [dispatch])
@@ -36,20 +34,36 @@ export default function Hero() {
                 className="mySwiper"
             >
                     {
-                        trending && trending.map(item => (
+                        trending && trending.slice(0,3).map(item => (
                             <SwiperSlide key={item.id}>
-                                <div 
-                                    className='max-w-[1024px] h-96 w-full mx-auto mt-20 rounded-lg col-span-4) bg-cover]'
-                                    style={{
-                                        backgroundImage : `url(${request.imgUrl}${item.backdrop_path})`,
-                                        backgroundSize : 'cover',
-                                        backgroundRepeat : 'no-repeat' 
-                                    }}
+                                <div
+                                    className={`w-full h-96 lg:h-screen relative bg-center bg-cover bg-no-repeat`}
+                                    style={{backgroundImage: `url(${request.imgUrl}${item.backdrop_path})`}}
                                 >
-                                    <div className="w-80 mx-auto md:mx-10 pt-44 md:pt-42">
-                                        <h2 className="text-white text-4xl md:w-[968px]">{item.title || item.name}</h2>
-                                        <p className="text-indigo-100 mt-4 capitalize font-thin tracking-wider leading-7">{item.release_date || item.first_air_date}</p>
-                                        <button className="uppercase inline-block mt-4 text-sm bg-white py-2 px-4 rounded font-semibold hover:bg-indigo-100">get start</button>
+                                    <div 
+                                        style={{
+                                            position: 'absolute',
+                                            width: '100%',
+                                            height: '100vh',
+                                            backgroundImage: 'linear-gradient(to top, rgba(15,15,15,1), rgba(0,0,0,0))'
+                                        }}>
+                                    </div>
+                                    <div className="lg:flex justify-between relative max-w-[1024px] mx-auto">
+                                        <div className="w-5/6 text-white lg:pr-16 pt-20 md:pt-44 lg:pt-64 mx-auto">
+                                            <h2 className="text-3xl md:text-4xl  lg:text-5xl font-bold leading-normal text-center md:text-left">{item.title || item.name}</h2>
+                                            <div className="text-[700]">{item.overview}</div>
+                                            <div className="btns">
+                                                <button>
+                                                    Watch now
+                                                </button>
+                                                <button>
+                                                    Watch trailer
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div className="invisible lg:visible pt-24">
+                                            <img className='md:w-[200px] lg:w-[300px] rounded-lg shadow-md' src={request.imgUrl + item.poster_path} alt="" />
+                                        </div>
                                     </div>
                                 </div>
                             </SwiperSlide>

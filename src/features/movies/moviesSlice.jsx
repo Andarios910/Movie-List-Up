@@ -19,7 +19,7 @@ export const getMoviesDetail = createAsyncThunk(
     async(id) => {
         try {
             const res = await axios.get(`${request.baseUrl}/movie/${id}?api_key=${request.apiKey}&language=en-US`);
-            return res;
+            return res.data;
         } catch(error) {
             console.error(error);
         }
@@ -43,7 +43,6 @@ export const getTrending = createAsyncThunk(
     async() => {
         try {
             const res = await axios.get(`${request.baseUrl}//trending/all/day?api_key=${request.apiKey}`);
-            // console.log(res)
             return res.data.results;
         }catch(error) {
             console.error(error);
@@ -55,8 +54,8 @@ export const getGenres = createAsyncThunk(
     'genres/getGenres',
     async() => {
         try {
-            const res = await axios.get(`http://notflixtv.herokuapp.com/api/v1/movies/genres`);
-            return res.data;
+            const res = await axios.get(`${request.baseUrl}/genre/movie/list?api_key=${request.apiKey}&language=en-US`);
+            return res.data.genres;
         }catch(error) {
             console.error(error);
         }
@@ -66,7 +65,6 @@ export const getGenres = createAsyncThunk(
 const initialState = {
     movies: [],
     shows: [],
-    trendign: [],
     genres: [],
     isLoading: false,
     hasError: false,
@@ -102,7 +100,7 @@ export const moviesSlice = createSlice({
             state.hasError = false
         },
         [getMoviesDetail.fulfilled]: (state, {payload}) => {
-            state.selectMovieOrShow =payload.data
+            state.selectMovieOrShow =payload
             state.isLoading = false
             state.hasError = false
         },
@@ -143,7 +141,7 @@ export const moviesSlice = createSlice({
 
         //getGenres
         [getGenres.fulfilled]: (state, {payload}) => {
-            state.genres = payload.data
+            state.genres = payload
         }
     }
 })

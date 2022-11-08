@@ -11,12 +11,12 @@ export default function Navigation() {
     const handleNav = () => setIcon(!icon);
 
     return (
-        <nav className='fixed top-0 left-0 bg-[#111722] w-full mb-8 z-10 transition-all duration-200 ease-out'>
+        <nav className='fixed top-0 left-0 bg-transparent w-full mb-8 z-10 transition-all duration-200 ease-out'>
             <div className='container m-auto flex justify-between items-center text-gray-700'>
                 <div className='grid grid-cols-3 gap-10'>
-                    <h1 className='lg:pl-[120px] pl-8 py-4 text-2xl font-bold text-white items-center cursor-pointer'>NotFlix</h1>
+                    <h1 className='lg:pl-[120px] pl-8 py-4 text-2xl font-bold text-white items-center cursor-pointer' onClick={() => navigate('/')}>NotFlix</h1>
                     <ul className='hidden md:flex items-center text-base font-semibold cursor-pointer'>
-                        <li className='hover:text-[#3182ed] py-4 px-6 text-white transition-all duration-500 ease-out'>Home</li>
+                        <li className='hover:text-[#3182ed] py-4 px-6 text-white transition-all duration-500 ease-out' onClick={() => navigate('/')}>Home</li>
                         <li className='hover:text-[#3182ed] py-4 px-6 text-white transition-all duration-500 ease-out'>Category</li>
                     </ul>
                 </div>
@@ -29,8 +29,8 @@ export default function Navigation() {
                             placeholder='Search'
                             onChange={(e) => setQuery(e.target.value)}
                         />
-                        <button type='submit' className='absolute top-[27%] right-2'>
-                            <BsSearch color='white'/>
+                        <button type='submit' className='absolute top-[35%] right-2'>
+                            <BsSearch className='text-[#3182ed] hover:text-white transition-all duration-500 ease-out'/>
                         </button>
                     </form>
                     <ul className='hidden md:flex items-center pr-10 lg:pr-[128px] text-base font-semibold cursor-pointer'>
@@ -48,7 +48,7 @@ export default function Navigation() {
                     <div className={`absolute top-0 ${icon ? 'right-0' : 'right-[-100%]'} h-screen w-8/12 bg-slate-900 mt-[60px] ease-in-out duration-500`}>
                         <ul className='flex flex-col items-center w-full text-base cursor-pointer pt-10 outline-none'>
                             <li className='py-4 px-6 w-full'>
-                                <form onSubmit={handleSubmit} className='relative'>
+                                <form onSubmit={handleSubmit} className='relative '>
                                     <input
                                         className='bg-slate-700 h-10 px-5 w-full rounded-lg text-white text-sm focus:outline-none'
                                         type='search'

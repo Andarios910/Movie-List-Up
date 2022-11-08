@@ -3,7 +3,7 @@ import { BsFacebook, BsTwitter, BsInstagram, BsYoutube } from 'react-icons/bs'
 
 export default function Footer() {
     return (
-        <footer className='bg-gray-900 text-white mt-10 lg:pl-[120px] lg:pr-[128px] '>
+        <footer className='bg-gray-900 text-white mt-10 lg:pl-[120px] lg:pr-[128px]'>
             <div className='lg:flex md:justify-between text-center md:text-left  sm:px-12 px-4 bg-[$ffffff19] py-7'>
                 <div className='max-w-[250px] mx-auto md:mx-0'>
                     <ul className='md:mr-8'>
