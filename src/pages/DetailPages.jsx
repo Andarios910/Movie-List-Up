@@ -10,6 +10,7 @@ import request from '../api/apiConfig';
 import Navigation from '../component/Navigation';
 import Footer from '../component/Footer';
 import Cardmap from '../component/detailComponent/Cardmap';
+import CardReview from '../component/CardReview';
 
 export default function DetailPages() {
     const { moviesId } = useParams();
@@ -18,8 +19,7 @@ export default function DetailPages() {
     const { review } = useSelector((state) => state.review)
     const dispatch = useDispatch();
 
-    console.log('cast', cast)
-    console.log('crew', crew)
+    console.log('review', review)
 
     useEffect(() => {
         dispatch(getMoviesDetail(moviesId));
@@ -93,8 +93,9 @@ export default function DetailPages() {
                         <h1 className='pl-3 pb-5 font-bold text-4xl'>Crew</h1>
                         <Cardmap movies={crew} />
                     </div>
-                    <div>
-                        
+                    <div className="antialiased pt-8 pb-12 max-w-[1024px] mx-auto">
+                        <h1 className='pl-3 pb-5 font-bold text-4xl'>Comment</h1>
+                        <CardReview data={review} />
                     </div>
                     <Footer />
                 </div>
