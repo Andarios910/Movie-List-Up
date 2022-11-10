@@ -18,7 +18,8 @@ export default function DetailPages() {
     const { review } = useSelector((state) => state.review)
     const dispatch = useDispatch();
 
-    console.log(cast)
+    console.log('cast', cast)
+    console.log('crew', crew)
 
     useEffect(() => {
         dispatch(getMoviesDetail(moviesId));

@@ -36,10 +36,10 @@ export default function Cardmap({ movies }) {
                 <div className='max-w-[1024px] grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-4 md:gap-y-8 mx-auto mt-12'>
                     {
                         movies && 
-                        movies.map(item => (
-                            <SwiperSlide key={item.cast_id}>
+                        movies.map((item, index) => (
+                            <SwiperSlide key={index}>
                                 <Card 
-                                    id={item.cast_id}
+                                    id={item.id }
                                     imageUrl={item.profile_path}
                                     name={item.name}
                                 />

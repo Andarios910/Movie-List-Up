@@ -16,8 +16,6 @@ export default function HomePages() {
     const { movies, isLoading, hasError, genres } = useSelector((state) => state.movies)
     const dispatch = useDispatch();
 
-    console.log(genres)
-
     useEffect(() => {
         dispatch(getMovies());
         dispatch(getGenres());
@@ -48,7 +46,7 @@ export default function HomePages() {
                     modules={[Pagination]}
                     className="mySwiper"
                 >
-                    <div class="filter-dropdowns">
+                    <div className="filter-dropdowns">
                         {
                             genres && genres.map(item => (
                                 <SwiperSlide key={item.id}>
@@ -74,16 +72,18 @@ export default function HomePages() {
                 {/* </div> */}
                 <div className="relative bg-[#131720] p-2.5 rounded-[15px]">
 
-                    <input type="radio" name="grade" id="featured" className='hidden' checked />
-                    <label for="featured" className='relative mx-2.5 cursor-pointer '>Featured</label>
+                    <input type="radio" name="grade" id="featured" className='hidden' 
+                        // checked 
+                    />
+                    <label htmlFor="featured" className='relative mx-2.5 cursor-pointer '>Featured</label>
 
                     <input type="radio" name="grade" id="popular"  className='hidden' />
-                    <label for="popular" className='relative mx-2.5 cursor-pointer '>Popular</label>
+                    <label htmlFor="popular" className='relative mx-2.5 cursor-pointer '>Popular</label>
 
                     <input type="radio" name="grade" id="newest"  className='hidden' />
-                    <label for="newest" className='relative mx-2.5 cursor-pointer '>Newest</label>
+                    <label htmlFor="newest" className='relative mx-2.5 cursor-pointer '>Newest</label>
 
-                    <div class="checked-radio-bg"></div>
+                    <div className="checked-radio-bg"></div>
 
                 </div>
 

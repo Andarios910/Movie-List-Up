@@ -7,8 +7,7 @@ export const getReview = createAsyncThunk(
     async(id) => {
         try {
             const res = await axios.get(`${request.baseUrl}/movie/${id}/reviews?api_key=${request.apiKey}&language=en-US&page=1`);
-            console.log(res);
-            // return res.data;
+            return res.data;
         }catch(error) {
             console.error(error)
         }
