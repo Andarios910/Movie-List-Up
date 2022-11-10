@@ -5,26 +5,28 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getMoviesDetail, removeSelectedMovieOrShow } from '../features/movies/moviesSlice';
 import { getCredit } from '../features/movies/creditSlice';
 import { getReview } from '../features/movies/reviewSlice';
+import { getVideo } from '../features/movies/videoSlice';
 
 import request from '../api/apiConfig';
 import Navigation from '../component/Navigation';
 import Footer from '../component/Footer';
 import Cardmap from '../component/detailComponent/Cardmap';
 import CardReview from '../component/CardReview';
+import Youtube from '../component/detailComponent/Youtube';
 
 export default function DetailPages() {
     const { moviesId } = useParams();
     const { selectMovieOrShow, isLoading, hasError } = useSelector((state) => state.movies)
     const { cast, crew } = useSelector((state) => state.credit)
     const { review } = useSelector((state) => state.review)
+    const { video } = useSelector((state) => state.video)
     const dispatch = useDispatch();
-
-    console.log('review', review)
 
     useEffect(() => {
         dispatch(getMoviesDetail(moviesId));
         dispatch(getCredit(moviesId));
         dispatch(getReview(moviesId))
+        dispatch(getVideo(moviesId))
         return () => {
             dispatch(removeSelectedMovieOrShow())
         }
@@ -58,7 +60,7 @@ export default function DetailPages() {
                                 backgroundImage: 'linear-gradient(to top, rgba(15,15,15,1), rgba(0,0,0,0))'
                             }}>
                         </div>
-                        <div className="lg:flex lg:flex-row-reverse justify-between relative max-w-[1024px] w-5/6 lg:w-3/4 mx-auto">
+                        <div className="lg:flex lg:flex-row-reverse justify-between relative max-w-[1024px] w-5/6 h-96 lg:h-screen lg:w-3/4 mx-auto">
                             <div className="w-full md:w-5/6 text-white mx-auto pt-20 md:pt-36 lg:pt-40">
                                 <h2 className="text-2xl md:text-4xl lg:text-4xl font-bold leading-normal text-center md:text-left md:mb-5">{selectMovieOrShow.title || selectMovieOrShow.name}</h2>
                                 {
@@ -86,6 +88,21 @@ export default function DetailPages() {
                         </div>
                     </div>
                     <div className='pt-10 max-w-[1024px] mx-auto'>
+                        <h1 className='pl-5 pb-5 font-bold text-4xl'>Trailer</h1>
+                        {
+                            video && video.map((item, index) => {
+                                if ((item.type === 'Trailer')) {
+                                    return (
+                                        <Youtube embedId={item.key} key={index} />
+                                    )
+                                }
+                                return (
+                                    <p></p>
+                                )
+                            })
+                        }
+                    </div>
+                    <div className='pt-10 max-w-[1024px] mx-auto'>
                         <h1 className='pl-5 pb-5 font-bold text-4xl'>Casts</h1>
                         <Cardmap movies={cast} />
                     </div>
@@ -103,3 +120,5 @@ export default function DetailPages() {
         </div>
     )
 }
+
+

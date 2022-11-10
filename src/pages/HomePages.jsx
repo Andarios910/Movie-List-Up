@@ -28,7 +28,7 @@ export default function HomePages() {
             <div className='max-w-[1024px] mx-auto mt-10 flex justify-between items-center bg-[#162032] px-[30px] py-5 rounded-[20px] text-white'>
                 <Swiper
                     slidesPerView={2}
-                    spaceBetween={30}
+                    spaceBetween={20}
                     breakpoints={{
                         640: {
                             slidesPerView: 4,

@@ -11,12 +11,12 @@ export default function Navigation() {
     const handleNav = () => setIcon(!icon);
 
     return (
-        <nav className='fixed top-0 left-0 bg-transparent w-full mb-8 z-10 transition-all duration-200 ease-out'>
+        <nav className='fixed max-w-[1024px] px-5 xl:px-0 top-0 left-1/2 translate-x-[-50%] bg-transparent w-full mb-8 z-10 transition-all duration-200 ease-out'>
             <div className='container m-auto flex justify-between items-center text-gray-700'>
-                <div className='grid grid-cols-3 gap-10'>
-                    <h1 className='lg:pl-[120px] pl-8 py-4 text-2xl font-bold text-white items-center cursor-pointer' onClick={() => navigate('/')}>NotFlix</h1>
+                <div className='grid grid-cols-3'>
+                    <h1 className='py-4 text-2xl font-bold text-white items-center cursor-pointer' onClick={() => navigate('/')}>NotFlix</h1>
                     <ul className='hidden md:flex items-center text-base font-semibold cursor-pointer'>
-                        <li className='hover:text-[#3182ed] py-4 px-6 text-white transition-all duration-500 ease-out' onClick={() => navigate('/')}>Home</li>
+                        <li className='hover:text-[#3182ed] py-4 text-white transition-all duration-500 ease-out' onClick={() => navigate('/')}>Home</li>
                         <li className='hover:text-[#3182ed] py-4 px-6 text-white transition-all duration-500 ease-out'>Category</li>
                     </ul>
                 </div>
@@ -33,7 +33,7 @@ export default function Navigation() {
                             <BsSearch className='text-[#3182ed] hover:text-white transition-all duration-500 ease-out'/>
                         </button>
                     </form>
-                    <ul className='hidden md:flex items-center pr-10 lg:pr-[128px] text-base font-semibold cursor-pointer'>
+                    <ul className='hidden md:flex items-center text-base font-semibold cursor-pointer'>
                         <li className='hover:text-[#3182ed] py-4 text-white max-w-64 flex items-center transition-all duration-500 ease-out'>
                             <span className='mr-1'>Sign In</span>
                             <BsBoxArrowInRight className='w-5 h-5' /> 
