@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getMovies, getGenres } from '../features/movies/moviesSlice'
 
 export default function HomePages() {
-    const { movies, isLoading, hasError, genres } = useSelector((state) => state.movies)
+    const { movies, genres } = useSelector((state) => state.movies)
     const dispatch = useDispatch();
 
     useEffect(() => {

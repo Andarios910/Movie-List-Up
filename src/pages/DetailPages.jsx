@@ -14,6 +14,8 @@ import Cardmap from '../component/detailComponent/Cardmap';
 import CardReview from '../component/CardReview';
 import Youtube from '../component/detailComponent/Youtube';
 
+import ClipLoader from "react-spinners/ClipLoader";
+
 export default function DetailPages() {
     const { moviesId } = useParams();
     const { selectMovieOrShow, isLoading, hasError } = useSelector((state) => state.movies)
@@ -40,7 +42,12 @@ export default function DetailPages() {
     
     if (isLoading) {
         return (
-            <p className='text-white'>Loading ....</p>
+            <div className='fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]'>
+                <ClipLoader
+                    color="#3182ed"
+                    size={64}
+                />
+            </div>
         )
     } 
 
@@ -97,7 +104,7 @@ export default function DetailPages() {
                                     )
                                 }
                                 return (
-                                    <p></p>
+                                    <p key={index}></p>
                                 )
                             })
                         }
