@@ -58,7 +58,7 @@ export default function DetailPages() {
                 <div key={selectMovieOrShow.id}> 
                     <Navigation />
                     <div
-                        className='w-full h-96 md:h-[500px] lg:h-screen relative bg-center bg-cover bg-no-repeat'
+                        className='w-full h-[100vh] md:h-[500px] lg:h-screen relative bg-center bg-cover bg-no-repeat'
                         style={{backgroundImage: `url(${request.imgUrl}${selectMovieOrShow.backdrop_path})`}}
                     >
                         <div
@@ -68,26 +68,18 @@ export default function DetailPages() {
                             }}>
                         </div>
                         <div className="lg:flex lg:flex-row-reverse justify-between relative max-w-[1024px] w-5/6 h-96 lg:h-screen lg:w-3/4 mx-auto">
-                            <div className="w-full md:w-5/6 text-white mx-auto pt-20 md:pt-36 lg:pt-40">
-                                <h2 className="text-2xl md:text-4xl lg:text-4xl font-bold leading-normal text-center md:text-left md:mb-5">{selectMovieOrShow.title || selectMovieOrShow.name}</h2>
+                            <div className="w-full md:w-5/6 text-white mx-auto pt-64 md:pt-36 lg:pt-40">
+                                <h2 className="text-2xl md:text-4xl lg:text-4xl font-bold leading-normal text-center md:text-left mb-5 md:mb-5">{selectMovieOrShow.title || selectMovieOrShow.name}</h2>
                                 {
                                     selectMovieOrShow.genres && 
                                     selectMovieOrShow.genres.map(item => (
-                                        <button key={item.id} className='md:mb-5 inline-block border-2 px-2 md:px-6 py-1 rounded-3xl hover:bg-slate-500 mr-2 my-1'>
+                                        <button key={item.id} className='mb-5 md:mb-5 inline-block border-2 px-2 md:px-6 py-1 rounded-3xl hover:bg-slate-500 mr-2 my-1'>
                                             {item.name}
                                         </button>
                                     ))
                                 }
                                 
                                 <div className="text-sm text-[700] md:mb-5">{selectMovieOrShow.overview}</div>
-                                <div className="btns">
-                                    <button className='px-10 py-2 rounded-3xl mr-5 bg-red-600 hover:bg-red-700'>
-                                        Watch now
-                                    </button>
-                                    <button className='px-10 py-2 rounded-3xl mr-5 border-2 hover:bg-[#3182ed] hover:border-[#3182ed]'>
-                                        Watch trailer
-                                    </button>
-                                </div>
                             </div>
                             <div className="invisible lg:visible lg:pr-16 lg:pt-40">
                                 <img className='md:w-[200px] lg:w-[250px] rounded-lg shadow-md' src={request.imgUrl + selectMovieOrShow.poster_path} alt="" />
