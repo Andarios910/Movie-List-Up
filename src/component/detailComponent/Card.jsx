@@ -6,7 +6,7 @@ export default function Card({ imageUrl, name }) {
     return (
         <div className='movie-card relative mx-auto text-white hover:text-[#3182ed] transition-all duration-200 ease-out'>
             <img 
-                className="movie-image rounded-3xl shadow-lg object-contain h-64 md:h-66 mb-2" 
+                className="rounded-3xl shadow-lg object-contain h-64 md:h-66 mb-2" 
                 src={`${request.imgUrl}${imageUrl}`} 
                 alt="card_image"
             /> 

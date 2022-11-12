@@ -26,7 +26,7 @@ export default function FilterBar({ genres }) {
                         </div>
                         <div 
                             className={`absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-[#162032] shadow-lg ring-1 ring-black 
-                            ring-opacity-5 focus:outline-none transition ease-out duration-100 ${select ? 'transform opacity-100 scale-100' : 'transform opacity-0 scale-95'}`}
+                            ring-opacity-5 focus:outline-none transition ease-out duration-100 ${select ? 'visible transform opacity-100 scale-100' : 'invisible transform opacity-0 scale-95'}`}
                             role="menu" 
                             aria-orientation="vertical" 
                             aria-labelledby="menu-button" 
