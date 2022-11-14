@@ -79,7 +79,7 @@ export default function DetailPages() {
                                     ))
                                 }
                                 
-                                <div className="text-sm text-[700]md:mb-5 pb-10 line-clamp-3 md:line-clamp-none">{selectMovieOrShow.overview}</div>
+                                <div className="text-sm text-[700] md:mb-5 mb-10 line-clamp-2 md:line-clamp-none">{selectMovieOrShow.overview}</div>
                             </div>
                             <div className="lg:pr-16 mt-44 pr-5 lg:mt-40 mx-auto">
                                 <img className='w-52 md:w-[200px] lg:w-[250px] rounded-lg shadow-md' src={request.imgUrl + selectMovieOrShow.poster_path} alt="" />
