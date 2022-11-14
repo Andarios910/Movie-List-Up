@@ -67,8 +67,8 @@ export default function DetailPages() {
                                 backgroundImage: 'linear-gradient(to top, rgba(15,15,15,1), rgba(0,0,0,0))'
                             }}>
                         </div>
-                        <div className="flex flex-row-reverse justify-between relative max-w-[1024px] w-6/6 md:w-5/6 px-5 h-full lg:h-screen lg:w-3/4 mx-auto">
-                            <div className="h-full w-full md:w-5/6 text-white mx-auto mt-44 lg:mt-40">
+                        <div className="flex flex-col-reverse md:flex-row-reverse justify-between relative max-w-[1024px] w-6/6 md:w-5/6 px-5 h-full lg:h-screen lg:w-3/4 mx-auto">
+                            <div className="h-full w-full md:w-5/6 text-white mx-auto mt-10 md:mt-44 lg:mt-40">
                                 <h2 className="text-2xl md:text-4xl lg:text-4xl font-bold leading-normal md:text-left mb-2 md:mb-5">{selectMovieOrShow.title || selectMovieOrShow.name}</h2>
                                 {
                                     selectMovieOrShow.genres && 
@@ -79,10 +79,10 @@ export default function DetailPages() {
                                     ))
                                 }
                                 
-                                <div className="text-sm text-[700] md:mb-5 pb-10">{selectMovieOrShow.overview}</div>
+                                <div className="text-sm text-[700]md:mb-5 pb-10 line-clamp-3 md:line-clamp-none">{selectMovieOrShow.overview}</div>
                             </div>
-                            <div className="lg:pr-16 mt-44 pr-5 lg:mt-40">
-                                <img className='w-[200px] md:w-[200px] lg:w-[250px] rounded-lg shadow-md' src={request.imgUrl + selectMovieOrShow.poster_path} alt="" />
+                            <div className="lg:pr-16 mt-44 pr-5 lg:mt-40 mx-auto">
+                                <img className='w-52 md:w-[200px] lg:w-[250px] rounded-lg shadow-md' src={request.imgUrl + selectMovieOrShow.poster_path} alt="" />
                             </div>
                         </div>
                     </div>

@@ -13,7 +13,7 @@ export default function Card({ imageUrl, castImage, title, genre, handleClick, c
     }, [dispatch])
 
     return (
-            <div className='movie-card relative mx-auto text-white hover:text-[#3182ed] transition-all duration-200 ease-out'>
+            <div className='movie-card relative mx-auto text-white hover:text-[#63a285] transition-all duration-200 ease-out'>
                     <div 
                         className='absolute rounded-3xl w-full h-64 text-white bg-transparent text-opacity-0  
                         hover:text-opacity-100 hover:backdrop-blur-[2px] hover:bg-black/30 

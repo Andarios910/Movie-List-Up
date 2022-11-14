@@ -16,8 +16,8 @@ export default function Navigation() {
                 <div className='grid grid-cols-3'>
                     <h1 className='py-4 text-2xl font-bold text-white items-center cursor-pointer' onClick={() => navigate('/')}>NotFlix</h1>
                     <ul className='hidden md:flex items-center text-base font-semibold cursor-pointer'>
-                        <li className='hover:text-[#3182ed] py-4 text-white transition-all duration-500 ease-out' onClick={() => navigate('/')}>Home</li>
-                        <li className='hover:text-[#3182ed] py-4 px-6 text-white transition-all duration-500 ease-out'>Category</li>
+                        <li className='hover:text-[#2b9c87] py-4 text-white transition-all duration-500 ease-out' onClick={() => navigate('/')}>Home</li>
+                        <li className='hover:text-[#2b9c87] py-4 px-6 text-white transition-all duration-500 ease-out'>Category</li>
                     </ul>
                 </div>
                 <div className='flex justify-items-stretch'>
@@ -34,8 +34,13 @@ export default function Navigation() {
                         </button>
                     </form>
                     <ul className='hidden md:flex items-center text-base font-semibold cursor-pointer'>
-                        <li className='hover:text-[#3182ed] py-4 text-white max-w-64 flex items-center transition-all duration-500 ease-out'>
-                            <span className='mr-1'>Sign In</span>
+                        <li 
+                            className='hover:text-[#2b9c87] py-4 text-white max-w-64 flex items-center transition-all duration-500 ease-out'
+                            onClick={() => navigate('login')}
+                        >
+                            <span className='mr-1'>
+                                Sign In
+                            </span>
                             <BsBoxArrowInRight className='w-5 h-5' /> 
                         </li>
                     </ul>

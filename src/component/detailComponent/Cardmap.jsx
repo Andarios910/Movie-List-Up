@@ -30,7 +30,7 @@ export default function Cardmap({ movies }) {
                     },
                 }}
                 modules={[Pagination]}
-                className="mySwiper"
+                className="mySwiper !px-5 lg:!px-0"
             >
         
                 <div className='max-w-[1024px] grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-4 md:gap-y-8 mx-auto mt-12'>
