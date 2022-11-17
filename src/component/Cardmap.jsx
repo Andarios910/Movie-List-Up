@@ -21,6 +21,7 @@ export default function Cardmap({ movies }) {
                             imageUrl={item.poster_path}
                             title={item.title}
                             genre={item.genre_ids}
+                            rating={item.vote_average}
                             handleClick={() => navigate(`/detail/${item.id}`)}
                         />
                     ))
