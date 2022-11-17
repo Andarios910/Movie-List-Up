@@ -1,5 +1,4 @@
 import React from 'react'
-import request from '../api/apiConfig'
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -7,6 +6,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
 export default function CardReview({ data }) {
+    console.log()
     return (
         <>
             <div className="">
@@ -31,27 +31,27 @@ export default function CardReview({ data }) {
                         },
                     }}
                     modules={[Pagination]}
-                    className="mySwiper"
+                    className="mySwiper !px-5 md:!px-0"
                 >
                     {
                         data && data.map((item, index) => (
                             <SwiperSlide key={index}>
-                                <div className="w-full px-8 py-8 rounded-md shadow-lg bg-[#162032] text-white">
+                                <div className="relative w-full h-64 px-8 py-8 rounded-md shadow-lg bg-[#162032] text-white">
                                     <div className="flex space-x-0.5"></div>
                                     <div className="space-y-1">
                                         <h3 className="font-semibold">
                                             {item.created_at}
                                         </h3>
-                                        <p className="text-sm font-medium leading-5">
+                                        <p className="text-sm font-medium leading-5 line-clamp-5">
                                             {item.content}
                                         </p>
                                     </div>
-                                    <div className="mt-6 flex items-center space-x-2">
+                                    <div className="absolute bottom-8 mt-6 flex items-center space-x-2">
                                         <div className="flex flex-shrink-0 rounded-full border border-gray-200">
                                             <img
                                                 className="w-8 h-8 object-cover rounded-full"
-                                                src={`${request.imgUrl}${item.author_details.avatar_path}`}
-                                                alt=""
+                                                src={`https://ui-avatars.com/api/?name=${item.author_details.username}`}
+                                                alt="profile"
                                             />
                                         </div>
                                         <span className="text-sm font-semibold leading-5">

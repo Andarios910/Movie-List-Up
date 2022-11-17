@@ -3,8 +3,8 @@ import { BsFacebook, BsTwitter, BsInstagram, BsYoutube } from 'react-icons/bs'
 
 export default function Footer() {
     return (
-        <footer className='bg-gray-900 text-white mt-10 lg:pl-[120px] lg:pr-[128px]'>
-            <div className='lg:flex md:justify-between text-center md:text-left  sm:px-12 px-4 bg-[$ffffff19] py-7'>
+        <footer className='bg-gray-900 text-white mt-10'>
+            <div className='max-w-[1024px] mx-auto lg:flex md:justify-between text-center md:text-left px-5 bg-[$ffffff19] py-7'>
                 <div className='max-w-[250px] mx-auto md:mx-0'>
                     <ul className='md:mr-8'>
                         <h1 className='mb-5 text-[2rem] font-bold'>NotFlix</h1>

@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+import { useDispatch } from 'react-redux';
+import { handleRegister } from '../features/login/registerSlice';
 
 export default function RegisterPage() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [formValues, setFormValues] = useState({
         name: '',
         email: '',
@@ -18,7 +22,7 @@ export default function RegisterPage() {
     const handleSubmit = (e) => {
         e.preventDefault()
         setFormErrors(validate(formValues))
-        console.log(formValues)
+        dispatch(handleRegister(formValues))
     }
     
     const validate = (values) => {
@@ -38,6 +42,15 @@ export default function RegisterPage() {
         }
         return errors;
     }
+
+    const token = JSON.parse(localStorage.getItem('token'))
+
+    useEffect(() => {
+        if (token) {
+            navigate('/')
+        }
+    }, [token, navigate])
+
     return (
         <section className="bg-gray-900">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
